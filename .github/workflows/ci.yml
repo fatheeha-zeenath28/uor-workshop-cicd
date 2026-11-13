@@ -25,3 +25,11 @@ jobs:
       - run: npm ci
       - run: npm test
       - run: npm run build
+
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: website-build
+          path: dist/
+          if-no-files-found: error
